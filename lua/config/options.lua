@@ -30,5 +30,3 @@ vim.opt.undofile = true
 vim.opt.virtualedit = "block"
 vim.opt.wrap = false
 vim.opt.writebackup = false
-
-
