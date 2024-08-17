@@ -48,6 +48,39 @@ return {
             end,
         })
 
+        -- Delete all buffers to the right of the current one
+        vim.keymap.set("n", "<leader>bl", function()
+            local current_buf = vim.fn.bufnr("%")
+            local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+            for _, buf in ipairs(buffers) do
+                if buf.bufnr > current_buf then
+                    require("mini.bufremove").delete(buf.bufnr, true)
+                end
+            end
+        end, { noremap = true, silent = true })
+
+        -- Delete all buffers to the left of the current one
+        vim.keymap.set("n", "<leader>bh", function()
+            local current_buf = vim.fn.bufnr("%")
+            local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+            for _, buf in ipairs(buffers) do
+                if buf.bufnr < current_buf then
+                    require("mini.bufremove").delete(buf.bufnr, true)
+                end
+            end
+        end, { noremap = true, silent = true })
+
+        -- Delete all buffers except the current one
+        vim.keymap.set("n", "<leader>ba", function()
+            local current_buf = vim.fn.bufnr("%")
+            local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+            for _, buf in ipairs(buffers) do
+                if buf.bufnr ~= current_buf then
+                    require("mini.bufremove").delete(buf.bufnr, true)
+                end
+            end
+        end, { noremap = true, silent = true })
+
         vim.keymap.set("n", "<leader>bd", function()
             require("mini.bufremove").delete(0, false)
         end)
