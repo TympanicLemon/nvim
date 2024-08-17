@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 vim.opt.backup = false
 vim.opt.clipboard = "unnamedplus"
+vim.opt.cmdheight = 0
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.confirm = true
 vim.opt.cursorline = true
