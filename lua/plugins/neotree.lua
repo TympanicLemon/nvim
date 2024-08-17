@@ -7,6 +7,7 @@ return {
         "MunifTanjim/nui.nvim",
     },
     config = function()
+        -- Default Neo-tree setup
         require("neo-tree").setup({
             open_files_do_not_replace_types = { "terminal", "qf", "Outline" },
             filesystem = {
@@ -47,11 +48,21 @@ return {
                         conflict = "",
                     },
                 },
-            }
+            },
+            window = {
+                position = "left",
+            },
         })
 
-        vim.keymap.set("n", "<leader>e", "<CMD>Neotree toggle<CR>")
+        -- Key mapping to toggle Neo-tree
+        vim.keymap.set("n", "<leader>e", function()
+            require("neo-tree.command").execute({
+                toggle = true,
+                position = "left",
+            })
+        end)
 
+        -- Refresh Neo-tree git status when lazygit is closed
         vim.api.nvim_create_autocmd("TermClose", {
             pattern = "*lazygit",
             callback = function()
@@ -59,6 +70,21 @@ return {
                     require("neo-tree.sources.git_status").refresh()
                 end
             end,
+        })
+
+        -- Autocmd to open Neo-tree in the current window if opening Neovim with a directory
+        vim.api.nvim_create_autocmd("VimEnter", {
+            callback = function()
+                local arg = vim.fn.argv(0)
+                if vim.fn.isdirectory(arg) == 1 then
+                    require("neo-tree").setup({
+                        window = {
+                            position = "current",  -- Open in current window if a directory is opened
+                        },
+                    })
+                    vim.cmd("Neotree reveal")
+                end
+            end
         })
     end,
 }
