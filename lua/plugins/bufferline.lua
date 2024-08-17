@@ -7,8 +7,12 @@ return {
     },
     opts = {
         options = {
-            close_command = function(buf_id) require("mini.bufremove").delete(buf_id, false) end,
-            right_mouse_command = function(buf_id) require("mini.bufremove").delete(buf_id, false) end,
+            close_command = function(buf_id)
+                require("mini.bufremove").delete(buf_id, false)
+            end,
+            right_mouse_command = function(buf_id)
+                require("mini.bufremove").delete(buf_id, false)
+            end,
             always_show_bufferline = false,
             diagnostics = "nvim_lsp",
             diagnostics_indicator = function(_, _, diag)
@@ -20,7 +24,7 @@ return {
                 }
 
                 local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-                .. (diag.warning and icons.Warning .. diag.warning or "")
+                    .. (diag.warn and icons.Warn .. diag.warn or "")
 
                 return vim.trim(ret)
             end,
@@ -44,7 +48,8 @@ return {
             end,
         })
 
-        -- Ensure MiniBufremove is loaded before using it in the keymap
-        vim.keymap.set("n", "<leader>bd", function() require("mini.bufremove").delete(0, false) end)
+        vim.keymap.set("n", "<leader>bd", function()
+            require("mini.bufremove").delete(0, false)
+        end)
     end,
 }
