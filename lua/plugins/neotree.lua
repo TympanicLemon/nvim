@@ -1,13 +1,12 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
-    dependencies = { 
+    dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
     },
     config = function()
-        -- Default Neo-tree setup
         require("neo-tree").setup({
             open_files_do_not_replace_types = { "terminal", "qf", "Outline" },
             filesystem = {
@@ -79,12 +78,12 @@ return {
                 if vim.fn.isdirectory(arg) == 1 then
                     require("neo-tree").setup({
                         window = {
-                            position = "current",  -- Open in current window if a directory is opened
+                            position = "current", -- Open in current window if a directory is opened
                         },
                     })
                     vim.cmd("Neotree reveal")
                 end
-            end
+            end,
         })
     end,
 }

@@ -8,7 +8,6 @@ return {
         end,
     },
 
-
     {
         "max397574/better-escape.nvim",
         config = function()
@@ -21,7 +20,7 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
         keys = { { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" } },
     },
-    
+
     {
         "mbbill/undotree",
         config = function()
