@@ -1,7 +1,7 @@
 return {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
-    dependencies = { {"nvim-tree/nvim-web-devicons"}},
+    dependencies = { { "nvim-tree/nvim-web-devicons" } },
     config = function()
         require("dashboard").setup({
             theme = "hyper",
@@ -27,10 +27,10 @@ return {
                         key = "r",
                     },
                     {
-                        desc = " dotfiles",
+                        desc = "Find Word",
                         group = "Number",
-                        action = "Telescope dotfiles",
-                        key = "d",
+                        action = "Telescope live_grep",
+                        key = "g",
                     },
                 },
             },
@@ -48,5 +48,5 @@ return {
                 end,
             })
         end
-    end
+    end,
 }
