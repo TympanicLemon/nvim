@@ -15,7 +15,7 @@ return {
             require("mason-lspconfig").setup_handlers({
                 function(server_name)
                     require("lspconfig")[server_name].setup({})
-                end
+                end,
             })
         end,
     },
@@ -24,17 +24,24 @@ return {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         dependencies = { "mason.nvim", "mason-lspconfig.nvim" },
         config = function()
-            require('mason-tool-installer').setup({
+            require("mason-tool-installer").setup({
                 ensure_installed = {
+                    -- LSPs
                     "lua-language-server",
                     "clangd",
+
+                    -- Formatters
                     "stylua",
-                    "black", -- Python formatter
-                    "isort", -- Python import sorter
+                    "black",
+                    "isort",
+
+                    -- Debuggers
+                    "codelldb",
                 },
 
                 integrations = {
                     ["mason-lspconfig"] = true,
+                    ["mason-nvim-dap"] = true,
                 },
             })
         end,
