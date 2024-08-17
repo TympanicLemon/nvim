@@ -6,6 +6,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
+vim.opt.fillchars = {eob = " "}
 vim.opt.grepprg = "rg --vimgrep"
 vim.opt.ignorecase = true
 vim.opt.mouse = "a"
