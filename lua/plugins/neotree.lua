@@ -7,6 +7,11 @@ return {
         "MunifTanjim/nui.nvim",
     },
     config = function()
+        vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+        vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+        vim.fn.sign_define("DiagnosticSignInfo", { text = "󰋼", texthl = "DiagnosticSignInfo" })
+        vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
+
         require("neo-tree").setup({
             open_files_do_not_replace_types = { "terminal", "qf", "Outline" },
             filesystem = {
@@ -47,6 +52,20 @@ return {
                         conflict = "",
                     },
                 },
+                diagnostics = {
+                    symbols = {
+                        hint = "󰌵",
+                        info = "󰋼",
+                        warn = "",
+                        error = "",
+                    },
+                    highlights = {
+                        hint = "DiagnosticSignHint",
+                        info = "DiagnosticSignInfo",
+                        warn = "DiagnosticSignWarn",
+                        error = "DiagnosticSignError",
+                    },
+                },
             },
             window = {
                 position = "left",
@@ -78,7 +97,7 @@ return {
                 if vim.fn.isdirectory(arg) == 1 then
                     require("neo-tree").setup({
                         window = {
-                            position = "current", -- Open in current window if a directory is opened
+                            position = "current",
                         },
                     })
                     vim.cmd("Neotree reveal")
