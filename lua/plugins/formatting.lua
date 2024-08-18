@@ -6,8 +6,14 @@ return {
 
         conform.setup({
             formatters_by_ft = {
+                c = { "clang_format" },
                 lua = { "stylua" },
                 python = { "isort", "black" },
+            },
+            formatters = {
+                clang_format = {
+                    args = { "--style", "{IndentWidth: 4}" },
+                },
             },
             format_on_save = {
                 lsp_fallback = true,

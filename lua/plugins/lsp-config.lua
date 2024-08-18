@@ -48,6 +48,7 @@ return {
                     "stylua",
                     "black",
                     "isort",
+                    "clang-format",
 
                     -- Debuggers
                     "codelldb",
