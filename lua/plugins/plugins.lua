@@ -1,5 +1,10 @@
 return {
     {
+        "brenoprata10/nvim-highlight-colors",
+        opts = {},
+    },
+
+    {
         "sainnhe/gruvbox-material",
         lazy = false,
         priority = 1000,
