@@ -9,18 +9,28 @@ return {
         { "nvim-tree/nvim-web-devicons" },
     },
     config = function()
-        require("telescope").setup {
+        local actions = require("telescope.actions")
+        require("telescope").setup({
+            defaults = {
+                path_display = { "smart" },
+                mappings = {
+                    i = {
+                        ["<C-k>"] = actions.move_selection_previous,
+                        ["<C-j>"] = actions.move_selection_next,
+                    },
+                },
+            },
             extensions = {
                 ["ui-select"] = {
                     require("telescope.themes").get_dropdown(),
                 },
             },
-        }
+        })
 
         require("telescope").load_extension("fzf")
         require("telescope").load_extension("ui-select")
 
-        local builtin = require "telescope.builtin"
+        local builtin = require("telescope.builtin")
         vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "find files" })
         vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find files" })
         vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "find recent files" })
