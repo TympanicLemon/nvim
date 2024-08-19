@@ -45,3 +45,6 @@ map("v", ">", ">gv")
 
 -- Enter normal mode in terminal
 map("t", "<esc><esc>", "<c-\\><c-n>")
+
+-- Open Lazy
+map("n", "<leader>L", "<cmd>Lazy<cr>")
