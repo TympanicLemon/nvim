@@ -16,12 +16,6 @@ return {
     },
 
     {
-        "kdheepak/lazygit.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        keys = { { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" } },
-    },
-
-    {
         "mbbill/undotree",
         config = function()
             vim.g.undotree_SplitWidth = 40
