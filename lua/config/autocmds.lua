@@ -4,6 +4,10 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
         if vim.o.buftype ~= "nofile" then
             vim.cmd("checktime")
         end
+
+        if package.loaded["neo-tree.sources.git_status"] then
+            require("neo-tree.sources.git_status").refresh()
+        end
     end,
 })
 
