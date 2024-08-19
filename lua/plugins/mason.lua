@@ -31,6 +31,7 @@ return {
 
                     -- Formatters
                     "stylua",
+                    "clang-format",
                 },
 
                 integrations = {
