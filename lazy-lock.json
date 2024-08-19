@@ -10,7 +10,6 @@
   "dashboard-nvim": { "branch": "master", "commit": "fabf5feec96185817c732d47d363f34034212685" },
   "friendly-snippets": { "branch": "main", "commit": "00ebcaa159e817150bd83bfe2d51fa3b3377d5c4" },
   "gitsigns.nvim": { "branch": "main", "commit": "562dc47189ad3c8696dbf460d38603a74d544849" },
-  "grug-far.nvim": { "branch": "main", "commit": "85cadf849bdb22540c36da2034d21de0b37c0952" },
   "gruvbox-material": { "branch": "master", "commit": "4dd5c5dd8035da5687c7c0c3d7f03eb7bf33916e" },
   "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
   "lazydev.nvim": { "branch": "main", "commit": "491452cf1ca6f029e90ad0d0368848fac717c6d2" },
