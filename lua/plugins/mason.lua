@@ -26,21 +26,14 @@ return {
                 ensure_installed = {
                     -- LSPs
                     "lua-language-server",
-                    "clangd",
+                    "pyright",
 
                     -- Formatters
                     "stylua",
-                    "black",
-                    "isort",
-                    "clang-format",
-
-                    -- Debuggers
-                    "codelldb",
                 },
 
                 integrations = {
                     ["mason-lspconfig"] = true,
-                    ["mason-nvim-dap"] = true,
                 },
             })
         end,
