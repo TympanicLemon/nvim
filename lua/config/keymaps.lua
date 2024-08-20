@@ -8,7 +8,7 @@ map("n", "<C-l>", "<C-w>l")
 
 -- quit and save
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>")
-map("n", "<leader>qq", "<CMD>qa<CR>")
+map("n", "<leader>q", "<CMD>qa<CR>")
 
 -- resize lines
 map("n", "<C-Up>", "<cmd>resize +2<cr>")
