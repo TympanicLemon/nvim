@@ -81,7 +81,7 @@ return {
             end
         end, { noremap = true, silent = true })
 
-        vim.keymap.set("n", "<leader>bd", function()
+        vim.keymap.set("n", "<leader>c", function()
             require("mini.bufremove").delete(0, false)
         end)
     end,
