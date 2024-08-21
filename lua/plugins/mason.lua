@@ -28,6 +28,7 @@ return {
                     "clangd",
                     "lua-language-server",
                     "pyright",
+                    "rust-analyzer",
 
                     -- Formatters
                     "stylua",
