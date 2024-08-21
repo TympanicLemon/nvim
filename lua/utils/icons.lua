@@ -1,10 +1,10 @@
 local icons = {}
 
 icons.diagnostics = {
-    Error = "",
-    Warn = "",
-    Info = "󰋼",
-    Hint = "󰌵",
+    Error = " ",
+    Warn = " ",
+    Hint = " ",
+    Info = " ",
 }
 
 return icons

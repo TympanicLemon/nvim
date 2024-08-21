@@ -1,3 +1,5 @@
+local icons = require("utils.icons")
+
 return {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
@@ -16,15 +18,8 @@ return {
             always_show_bufferline = false,
             diagnostics = "nvim_lsp",
             diagnostics_indicator = function(_, _, diag)
-                local icons = {
-                    Error = "",
-                    Hint = "󰌵",
-                    Info = "󰋼",
-                    Warn = "",
-                }
-
-                local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-                    .. (diag.warn and icons.Warn .. diag.warn or "")
+                local ret = (diag.error and icons.diagnostics.Error .. diag.error .. " " or "")
+                    .. (diag.warn and icons.diagnostics.Warn .. diag.warn or "")
 
                 return vim.trim(ret)
             end,
