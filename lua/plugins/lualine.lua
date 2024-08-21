@@ -1,3 +1,5 @@
+local util = require("utils.path")
+
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -11,7 +13,14 @@ return {
             sections = {
                 lualine_a = { "mode" },
                 lualine_b = { "branch" },
-                lualine_c = { "filename" },
+                lualine_c = {
+                    { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+                    function()
+                        local project_root = util.find_project_root()
+                        local relative_path = util.get_relative_path_to_file(project_root)
+                        return relative_path
+                    end,
+                },
                 lualine_x = {},
                 lualine_y = {
                     { "progress", separator = " ", padding = { left = 1, right = 0 } },
