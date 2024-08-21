@@ -48,3 +48,8 @@ map("t", "<esc><esc>", "<c-\\><c-n>")
 
 -- Open Lazy
 map("n", "<leader>L", "<cmd>Lazy<cr>")
+
+map("n", "<C-u>", "<C-u>zz", { desc = "scroll up and center" })
+map("n", "<C-d>", "<C-d>zz", { desc = "scroll down and center" })
+map("n", "n", "nzzzv", { desc = "keep cursor centered" })
+map("n", "N", "Nzzzv", { desc = "keep cursor centered" })
