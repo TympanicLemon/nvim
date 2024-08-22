@@ -4,6 +4,7 @@ return {
         config = function()
             vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "LSP code action" })
             vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename current symbol" })
+            vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
 
             vim.keymap.set("n", "<leader>ll", vim.lsp.codelens.refresh, { desc = "LSP CodeLens refresh" })
             vim.keymap.set("n", "<leader>lR", vim.lsp.buf.references, { desc = "Search references" })
