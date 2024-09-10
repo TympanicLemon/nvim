@@ -25,14 +25,11 @@ return {
             require("mason-tool-installer").setup({
                 ensure_installed = {
                     -- LSPs
-                    "clangd",
                     "lua-language-server",
                     "pyright",
-                    "rust-analyzer",
 
                     -- Formatters
                     "stylua",
-                    "clang-format",
                 },
 
                 integrations = {
