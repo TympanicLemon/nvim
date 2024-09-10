@@ -19,13 +19,14 @@ map("n", "<C-Right>", "<CMD>vertical resize +2<CR>", { desc = "Increase width" }
 -- Line Movement
 map("n", "<A-j>", "<CMD>m .+1<CR>==", { desc = "Move line down" })
 map("n", "<A-k>", "<CMD>m .-2<CR>==", { desc = "Move line up" })
-map("i", "<A-j>", "<esc><CMD>m .+1<CR>==gi", { desc = "Move line down in insert mode" })
-map("i", "<A-k>", "<esc><CMD>m .-2<CR>==gi", { desc = "Move line up in insert mode" })
+map("i", "<A-j>", "<ESC><CMD>m .+1<CR>==gi", { desc = "Move line down in insert mode" })
+map("i", "<A-k>", "<ESC><CMD>m .-2<CR>==gi", { desc = "Move line up in insert mode" })
 map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 -- Editing Enhancements
-map({ "i", "x", "n", "s" }, "<C-s>", "<CMD>w<CR><esc>", { desc = "Save file" })
+map("n", "<leader>w", "<CMD>w<CR><ESC>")
+map({ "i", "x", "n", "s" }, "<C-s>", "<CMD>w<CR><ESC>", { desc = "Save file" })
 map("n", "<leader>q", "<CMD>qa<CR>", { desc = "Quit all" })
 map("i", "<S-CR>", "<ESC>o", { desc = "Insert new line below" })
 map("i", ",", ",<c-g>u", { desc = "Add undo break after comma" })
@@ -41,7 +42,7 @@ map("n", "n", "nzzzv", { desc = "Keep cursor centered after search" })
 map("n", "N", "Nzzzv", { desc = "Keep cursor centered after reverse search" })
 
 -- Miscellaneous
-map({ "i", "n" }, "<esc>", "<CMD>noh<CR><esc>", { desc = "Clear search highlights" })
-map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter normal mode in terminal" })
+map({ "i", "n" }, "<ESC>", "<CMD>noh<CR><ESC>", { desc = "Clear search highlights" })
+map("t", "<ESC><ESC>", "<c-\\><c-n>", { desc = "Enter normal mode in terminal" })
 map("n", "<leader>L", "<CMD>Lazy<CR>", { desc = "Open Lazy" })
 map("n", "<leader>ya", "ggyG", { desc = "Yank all" })
