@@ -33,7 +33,6 @@ vim.api.nvim_create_autocmd("FileType", {
         "help",
         "lspinfo",
         "qf",
-        "trouble",
         "startuptime",
         "checkhealth",
         "dbout",
