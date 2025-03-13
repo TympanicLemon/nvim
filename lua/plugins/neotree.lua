@@ -15,6 +15,49 @@ return {
           hide_hidden = false,
         },
         follow_current_file = { enabled = true },
+        commands = {
+          -- Override delete to use trash instead of rm
+          delete = function(state)
+            local inputs = require("neo-tree.ui.inputs")
+            local path = state.tree:get_node().path
+            local msg = "Are you sure you want to trash " .. path
+
+            inputs.confirm(msg, function(confirmed)
+              if not confirmed then return end
+              
+              -- Find and close the buffer before trashing the file
+              local bufnr = vim.fn.bufnr(path)
+              if bufnr > 0 and vim.api.nvim_buf_is_loaded(bufnr) then
+                vim.api.nvim_buf_delete(bufnr, { force = true })
+              end
+              
+              vim.fn.system({ "trash", vim.fn.fnameescape(path) })
+              require("neo-tree.sources.manager").refresh(state.name)
+            end)
+          end,
+          
+          -- Handle visual mode selection (multiple files)
+          delete_visual = function(state, selected_nodes)
+            local inputs = require("neo-tree.ui.inputs")
+            local count = #selected_nodes
+            local msg = "Are you sure you want to trash " .. count .. " files?"
+            
+            inputs.confirm(msg, function(confirmed)
+              if not confirmed then return end
+              
+              for _, node in ipairs(selected_nodes) do
+                -- Find and close buffer for each file before trashing
+                local bufnr = vim.fn.bufnr(node.path)
+                if bufnr > 0 and vim.api.nvim_buf_is_loaded(bufnr) then
+                  vim.api.nvim_buf_delete(bufnr, { force = true })
+                end
+                
+                vim.fn.system({ "trash", vim.fn.fnameescape(node.path) })
+              end
+              require("neo-tree.sources.manager").refresh(state.name)
+            end)
+          end,
+        },
       },
       default_component_configs = {
         indent = {
